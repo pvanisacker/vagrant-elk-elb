@@ -8,6 +8,6 @@ class logstash-install {
   }
 
   class { "logstash":
-    require => Yumrepo["logstash-1.4"]
+    require => [Yumrepo["logstash-1.4"],Service["elasticsearch"]]
   }
 }

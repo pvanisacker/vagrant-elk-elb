@@ -11,4 +11,9 @@ You have to configure the S3 credentials in modules/logstash-config/files/logsta
 
 In Elasticsearch the kopf and head plugin are installed
 
+See:
+http://localhost:9200/_plugin/head/
+http://localhost:9200/_plugin/kopf/
+
 And in Kibana there are some example dashboards for looking at the ELB logs.
+http://localhost:8080/kibana/#/dashboard/file/elb.json

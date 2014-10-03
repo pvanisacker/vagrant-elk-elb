@@ -28,15 +28,18 @@ class elasticsearch-install {
   # Installing plugins, the elasticsearch::plugin stuff doesn't seem to work
   exec { "plugin-kopf-install":
     command => "/usr/share/elasticsearch/bin/plugin -i lmenezes/elasticsearch-kopf || exit 0",
-    notify => Service["elasticsearch"]
+    notify => Service["elasticsearch"],
+    require => Class["elasticsearch"]
   }
   exec { "plugin-head-install":
     command => "/usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head || exit 0",
-    notify => Service["elasticsearch"]
+    notify => Service["elasticsearch"],
+    require => Class["elasticsearch"]
   }
 
   service { "elasticsearch":
     name => "elasticsearch",
-    ensure => running
+    ensure => running,
+    require => Class["elasticsearch"]
   }
 }
